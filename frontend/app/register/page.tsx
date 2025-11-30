@@ -1,11 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useRegisterMutation } from "@/src/lib/api/apiSlice";
-import { useAppDispatch } from "@/src/lib/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/src/lib/store/hooks";
 import { setCredentials } from "@/src/features/auth/authSlice";
 import { Button } from "@/src/components/ui/Button";
 import { Input } from "@/src/components/ui/Input";
@@ -26,6 +27,14 @@ export default function RegisterPage() {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const [registerUser, { isLoading, error }] = useRegisterMutation();
+
+  const { isAuthenticated, isHydrated } = useAppSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isHydrated && isAuthenticated) {
+      router.replace("/products");
+    }
+  }, [isHydrated, isAuthenticated, router]);
 
   const {
     register,
@@ -55,6 +64,21 @@ export default function RegisterPage() {
       toast.error("Registration failed", { description: err?.data?.message || "Please try again." });
     }
   };
+
+  if (!isHydrated) {
+    return null;
+  }
+
+  if (isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="flex flex-col items-center gap-4">
+          <div className="h-10 w-10 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+          <p className="text-sm text-muted-foreground">Redirecting to products...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
