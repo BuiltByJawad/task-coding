@@ -7,7 +7,8 @@ A full‑stack MERN e‑commerce application built for an assignment requiring J
 - **State:** `auth`, `products`, `cart`, `orders` slices + RTK Query API slice
 - **Deployments:**
   - **Frontend:** https://task-coding-zd5a.vercel.app
-  - **Backend API:** https://task-coding.onrender.com
+  - **Backend API base URL:** https://task-coding.onrender.com
+  - **Backend health check:** https://task-coding.onrender.com/health
 
 ---
 
