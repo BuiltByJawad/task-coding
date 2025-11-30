@@ -142,15 +142,26 @@ For more implementation details, see `backend/README.md` and `frontend/README.md
 
 ## Screenshots
 
-Save final screenshots in a `screenshots/` folder at the repo root and reference them here:
+### Login
+![Login page](screenshots/login.png)
 
-- `screenshots/home.png` – Home page with trending products section
-- `screenshots/register.png` – Register page
-- `screenshots/login.png` – Login page
-- `screenshots/products.png` – Products listing page
-- `screenshots/product-detail.png` – Single product detail page
-- `screenshots/cart.png` – Cart page
-- `screenshots/checkout.png` – Checkout / order confirmation
-- `screenshots/orders.png` – Orders history/dashboard
+### Register
+![Register page](screenshots/register.png)
 
-Update the filenames if you choose different names or formats.
+### Products
+![Products page](screenshots/products.png)
+
+### Logged-in Dashboard
+![Logged-in dashboard](screenshots/logged in dashboard.png)
+
+### Product Detail
+![Product detail page](screenshots/product details.png)
+
+### Cart
+![Cart page](screenshots/cart.png)
+
+### Checkout
+![Checkout page](screenshots/checkout.png)
+
+### Orders
+![Orders page](screenshots/order.png)
