@@ -83,7 +83,7 @@ export const removeCartItem = async (
     }
 
     const initialLength = user.cart.length;
-    user.cart = user.cart.filter((item) => item._id.toString() !== id);
+    user.cart = user.cart.filter((item) => item._id?.toString() !== id);
 
     if (user.cart.length === initialLength) {
       return res.status(404).json({ message: "Cart item not found" });
